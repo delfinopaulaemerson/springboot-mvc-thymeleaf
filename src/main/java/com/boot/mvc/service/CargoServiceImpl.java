@@ -37,12 +37,14 @@ public class CargoServiceImpl implements CargoService {
 		
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Cargo findById(Long id) {
 		
 		return this.dao.findById(id);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Cargo> findAll() {
 		
