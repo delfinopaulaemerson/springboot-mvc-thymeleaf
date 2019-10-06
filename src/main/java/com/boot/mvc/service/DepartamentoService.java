@@ -17,4 +17,6 @@ public interface DepartamentoService {
 
 	List<Departamento> findAll();
 
+	boolean departamentoTemCargos(Long id);
+
 }

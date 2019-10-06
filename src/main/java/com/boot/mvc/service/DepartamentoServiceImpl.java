@@ -22,14 +22,12 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 
 	}
 
-	
 	@Override
 	public void update(Departamento departamento) {
 		this.dao.update(departamento);
 
 	}
 
-	@Transactional(readOnly = true)
 	@Override
 	public void delete(Long id) {
 		this.dao.delete(id);
@@ -39,8 +37,8 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 	@Transactional(readOnly = true)
 	@Override
 	public Departamento findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return this.dao.findById(id);
 	}
 
 	@Transactional(readOnly = true)
@@ -48,6 +46,18 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 	public List<Departamento> findAll() {
 
 		return this.dao.findAll();
+	}
+
+	@Override
+	public boolean departamentoTemCargos(Long id) {
+		Departamento d = null;
+		d = this.findById(id);
+
+		if (d.getCargos().isEmpty()) {
+			return false;
+		}
+
+		return true;
 	}
 
 }
