@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
+<html layout:decorate="~{Layout}">
 <head>
-	<meta charset="UTF-8" />
+<meta charset="UTF-8" />
 </head>
 <body>
-	
-	<div class="layout-main">	
-	<section class="layout-content">
-	
+	<section class="layout-content" layout:fragment="corpo">
 		<nav class="navbar navbar-expand-md bg-light">
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<i class="oi oi-caret-right"></i>
-						<span>Home</span>
-					</li>
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Home</span></li>
 				</ul>
 			</div>
 		</nav>
-		
+
 		<div class="container">
 			<div id="list-home" class="row">
 				<div class="col-4">
@@ -103,31 +98,7 @@
 				</div>
 			</div>
 		</div>
-		
-	</section>		
-	
-	</div>
-		
 
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="/webjars/jquery/jquery.min.js"></script>
-	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-	    
-		$(function() {
-			$('[data-toggle="popover"]').popover();
-		});
-		
-		$(document).ready(function(){
-		    $(".navbar-toggle").click(function(){
-		        $(".sidebar").toggleClass("sidebar-open");
-		    })
-		});
-
-	</script>
+	</section>
 </body>
 </html>

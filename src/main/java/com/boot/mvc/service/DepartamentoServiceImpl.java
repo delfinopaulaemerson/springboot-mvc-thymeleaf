@@ -16,14 +16,13 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 	@Autowired
 	private DepartamentoDao dao;
 
-	@Transactional(readOnly = true)
 	@Override
 	public void save(Departamento departamento) {
 		this.dao.save(departamento);
 
 	}
 
-	@Transactional(readOnly = true)
+	
 	@Override
 	public void update(Departamento departamento) {
 		this.dao.update(departamento);
