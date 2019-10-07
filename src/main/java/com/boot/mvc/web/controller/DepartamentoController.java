@@ -1,8 +1,11 @@
 package com.boot.mvc.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +35,11 @@ public class DepartamentoController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Departamento departamento,RedirectAttributes attr) {
+	public String salvar(@Valid Departamento departamento, BindingResult result ,RedirectAttributes attr) {
+		
+		if(result.hasErrors()) {
+			return "/departamento/cadastro";
+		}
 		
 		if(departamento.getId() == null) {
 			this.service.save(departamento);
