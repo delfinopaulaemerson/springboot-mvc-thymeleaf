@@ -16,21 +16,18 @@ public class CargoServiceImpl implements CargoService {
 	@Autowired
 	private CargoDao dao;
 	
-	@Transactional(readOnly = true)
 	@Override
 	public void save(Cargo cargo) {
 		this.dao.save(cargo);
 		
 	}
 
-	@Transactional(readOnly = true)
 	@Override
 	public void update(Cargo cargo) {
 		this.dao.update(cargo);
 		
 	}
 
-	@Transactional(readOnly = true)
 	@Override
 	public void delete(Long id) {
 		this.dao.delete(id);
@@ -49,6 +46,18 @@ public class CargoServiceImpl implements CargoService {
 	public List<Cargo> findAll() {
 		
 		return this.dao.findAll();
+	}
+
+	@Override
+	public boolean cargoTemFuncionario(Long id) {
+		Cargo c = null;
+		c = this.findById(id);
+		
+		if(c.getFuncionarios().isEmpty()) {
+			return false;
+		}
+		
+		return false;
 	}
 
 }
